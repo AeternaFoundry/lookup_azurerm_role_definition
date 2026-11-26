@@ -22,6 +22,10 @@ output "role_definition_lookup_role_definition_id" {
   description = "Map of role_definition_id values across all role_definition_lookup, keyed the same as var.role_definition_lookup"
   value       = { for k, v in data.azurerm_role_definition.role_definition_lookup : k => v.role_definition_id if v.role_definition_id != null && length(v.role_definition_id) > 0 }
 }
+output "role_definition_lookup_role_definition_resource_id" {
+  description = "Map of role_definition_resource_id values across all role_definition_lookup, keyed the same as var.role_definition_lookup"
+  value       = { for k, v in data.azurerm_role_definition.role_definition_lookup : k => v.role_definition_resource_id if v.role_definition_resource_id != null && length(v.role_definition_resource_id) > 0 }
+}
 output "role_definition_lookup_scope" {
   description = "Map of scope values across all role_definition_lookup, keyed the same as var.role_definition_lookup"
   value       = { for k, v in data.azurerm_role_definition.role_definition_lookup : k => v.scope if v.scope != null && length(v.scope) > 0 }
